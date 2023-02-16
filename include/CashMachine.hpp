@@ -4,11 +4,12 @@
 #include <AcceptedPayment.hpp>
 
 class CashMachine {
+  static int current_id;
   int id_;
   AcceptedPayment current_payment_mode_;
 
  public:
-  CashMachine();
+  CashMachine() : id_(current_id++) {}
   ~CashMachine();
 
   void choosePaymentMethod();

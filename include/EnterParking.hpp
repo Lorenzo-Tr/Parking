@@ -2,25 +2,26 @@
 #define __ENTER_PARKING_H__
 
 #include <ParkingLane.hpp>
+#include <list>
 #include <memory>
 
 class EnterParking {
+  static int current_id;
   int id_;
-  ParkingLane parking_lane_;
+  std::list<ParkingLanePtr> parking_lane_;
 
  public:
-  EnterParking();
+  EnterParking() : id_(current_id++) {}
   ~EnterParking();
 
   int GetId() const { return id_; }
-  ParkingLane GetParking_lane() const { return parking_lane_; }
+  std::list<ParkingLanePtr> GetParking_lane() const { return parking_lane_; }
 
   void SetId(int id) { id_ = id; }
-  void SetParking_lane(ParkingLane parking_lane) {
-    parking_lane_ = parking_lane;
-  }
 
-  void addParkingLane();
+  inline void addParkingLane(ParkingLane* parking_lane) {
+    parking_lane_.push_back(std::make_shared<ParkingLane>(parking_lane));
+  }
   void openParkingLane();
   void closeParkingLane();
 };

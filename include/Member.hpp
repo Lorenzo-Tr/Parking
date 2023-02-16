@@ -11,17 +11,34 @@ class Member : public Client {
   std::string address_;
 
  public:
-  int GetCid() const { return cid_; }
-  int GetBalance() const { return balance_; }
-  std::string GetLastname() const { return last_name_; }
-  std::string GetFirstname() const { return first_name_; }
-  std::string GetAddress() const { return address_; }
+  Member(int cid,
+         int balance,
+         std::string last_name,
+         std::string first_name,
+         std::string address)
+      : Client(),
+        cid_(cid),
+        balance_(balance),
+        last_name_(last_name),
+        first_name_(first_name),
+        address_(address) {}
+  ~Member();
 
-  void SetId(int cid) { cid_ = cid; }
-  void SetBalance(int balance) { balance_ = balance; }
-  std::string SetLastname(std::string last_name) { last_name_ = last_name; }
-  std::string SetFirsname(std::string first_name) { first_name_ = first_name; }
-  std::string SetAddress(std::string address) { address_ = address; }
+  inline int GetCid() const { return cid_; }
+  inline int GetBalance() const { return balance_; }
+  inline std::string GetLastname() const { return last_name_; }
+  inline std::string GetFirstname() const { return first_name_; }
+  inline std::string GetAddress() const { return address_; }
+
+  // inline void SetCid(int cid) { cid_ = cid; }
+  inline void SetBalance(int balance) { balance_ = balance; }
+  inline std::string SetLastname(std::string last_name) {
+    last_name_ = last_name;
+  }
+  inline std::string SetFirsname(std::string first_name) {
+    first_name_ = first_name;
+  }
+  inline std::string SetAddress(std::string address) { address_ = address; }
 };
 
 #endif

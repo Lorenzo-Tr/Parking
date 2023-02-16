@@ -10,7 +10,7 @@ class Terminal {
 
   int GetId() const { return id_; }
 
-  void SetId(int id) { id_ = id; }
+  // void SetId(int id) { id_ = id; }
 
   int readMemberCard();
   int readCreaditCard();
