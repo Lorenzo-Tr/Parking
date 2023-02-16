@@ -8,6 +8,9 @@ class EnterParking {
   ParkingLane parking_lane_;
 
  public:
+  EnterParking();
+  ~EnterParking();
+
   int GetId() const { return id_; }
   ParkingLane GetParking_lane() const { return parking_lane_; }
 
