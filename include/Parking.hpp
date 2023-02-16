@@ -12,24 +12,19 @@ class Parking {
   int id_;
   CashMachine cash_machine_;
   int capacity_;
-  int price_;
-  std::time_t opening_hours_;
+  float price_;
   std::vector<EnterParkingPtr> enter_parking_;
   std::vector<ExitParkingPtr> exit_parking_;
 
  public:
-  Parking(int capacity, int price, std::time_t opening_hours)
-      : id_(current_id++),
-        capacity_(capacity),
-        price_(price),
-        opening_hours_(opening_hours) {}
+  Parking(int capacity, float price)
+      : id_(current_id++), capacity_(capacity), price_(price) {}
   ~Parking() = default;
 
   inline int GetId() const { return id_; }
   inline CashMachine GetCash_machine() const { return cash_machine_; }
   inline int GetCapacity() const { return capacity_; }
-  inline int GetPrice() const { return price_; }
-  inline std::time_t GetOpening_hours() const { return opening_hours_; }
+  inline float GetPrice() const { return price_; }
   inline std::vector<EnterParkingPtr> GetEnter_parking() const {
     return enter_parking_;
   }
@@ -42,10 +37,7 @@ class Parking {
     cash_machine_ = cash_machine;
   }
   inline void SetCapacity(int capacity) { capacity_ = capacity; }
-  inline void SetPrice(int price) { price_ = price; }
-  inline void SetOpening_hours(std::time_t opening_hours) {
-    opening_hours_ = opening_hours;
-  }
+  inline void SetPrice(float price) { price_ = price; }
 
   inline void addEnterParking(EnterParking* enter_parking) {
     enter_parking_.push_back(std::make_shared<EnterParking>(enter_parking));

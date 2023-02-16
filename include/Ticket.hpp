@@ -10,6 +10,7 @@ class Ticket {
   float price_;
 
  public:
+  Ticket() = default;
   Ticket(std::time_t enter, std::time_t limite)
       : enterDate_(enter), limiteDate_(limite) {}
   ~Ticket();

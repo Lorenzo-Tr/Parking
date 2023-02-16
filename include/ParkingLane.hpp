@@ -2,13 +2,13 @@
 #define __PARKING_LANE_H__
 
 class ParkingLane {
-  int id_;
+  static int current_id;
   int id_;
 
   bool status_;
 
  public:
-  ParkingLane();
+  ParkingLane() : id_(current_id++) {}
   ~ParkingLane();
 
   inline int GetId() const { return id_; }

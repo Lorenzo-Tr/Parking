@@ -32,13 +32,9 @@ class Member : public Client {
 
   // inline void SetCid(int cid) { cid_ = cid; }
   inline void SetBalance(int balance) { balance_ = balance; }
-  inline std::string SetLastname(std::string last_name) {
-    last_name_ = last_name;
-  }
-  inline std::string SetFirsname(std::string first_name) {
-    first_name_ = first_name;
-  }
-  inline std::string SetAddress(std::string address) { address_ = address; }
+  inline void SetLastname(std::string last_name) { last_name_ = last_name; }
+  inline void SetFirsname(std::string first_name) { first_name_ = first_name; }
+  inline void SetAddress(std::string address) { address_ = address; }
 };
 
 #endif
