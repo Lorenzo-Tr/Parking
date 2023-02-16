@@ -2,6 +2,7 @@
 #define __ENTER_PARKING_H__
 
 #include <ParkingLane.hpp>
+#include <memory>
 
 class EnterParking {
   int id_;
@@ -23,5 +24,7 @@ class EnterParking {
   void openParkingLane();
   void closeParkingLane();
 };
+
+typedef std::shared_ptr<EnterParking> EnterParkingPtr;
 
 #endif

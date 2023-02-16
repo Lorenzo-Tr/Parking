@@ -24,4 +24,6 @@ class ExitParking {
   void closeParkingLane();
 };
 
+typedef std::shared_ptr<ExitParking> ExitParkingPtr;
+
 #endif

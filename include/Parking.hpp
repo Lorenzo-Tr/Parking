@@ -5,26 +5,27 @@
 #include <EnterParking.hpp>
 #include <ExitParking.hpp>
 #include <ctime>
-
-using namespace std;
+#include <vector>
 
 class Parking {
   int id_;
   CashMachine cash_machine_;
   int capacity_;
   int price_;
-  time_t opening_hours_;
-  EnterParking enter_parking_;
-  ExitParking exit_parking_;
+  std::time_t opening_hours_;
+  std::vector<EnterParkingPtr> enter_parking_;
+  std::vector<ExitParkingPtr> exit_parking_;
 
  public:
   int GetId() const { return id_; }
   CashMachine GetCash_machine() const { return cash_machine_; }
   int GetCapacity() const { return capacity_; }
   int GetPrice() const { return price_; }
-  time_t GetOpening_hours() const { return opening_hours_; }
-  EnterParking GetEnter_parking() const { return enter_parking_; }
-  ExitParking GetExit_parking() const { return exit_parking_; }
+  std::time_t GetOpening_hours() const { return opening_hours_; }
+  std::vector<EnterParkingPtr> GetEnter_parking() const {
+    return enter_parking_;
+  }
+  std::vector<ExitParkingPtr> GetExit_parking() const { return exit_parking_; }
 
   void SetId(int id) { id_ = id; }
   void SetCash_machine(CashMachine cash_machine) {
@@ -32,14 +33,14 @@ class Parking {
   }
   void SetCapacity(int capacity) { capacity_ = capacity; }
   void SetPrice(int price) { price_ = price; }
-  void SetOpening_hours(time_t opening_hours) {
+  void SetOpening_hours(std::time_t opening_hours) {
     opening_hours_ = opening_hours;
   }
   void SetEnter_parking(EnterParking enter_parking) {
-    enter_parking_ = enter_parking;
+    enter_parking_.push_back(std::make_shared<EnterParking>(enter_parking));
   }
   void SetExit_parking(ExitParking exit_parking) {
-    exit_parking_ = exit_parking;
+    exit_parking_.push_back(std::make_shared<ExitParking>(exit_parking));
   }
 
   void addEnterParking();

@@ -5,7 +5,13 @@
 
 class CashMachine {
   int id_;
-  AcceptedPayment accepted_payment_;
+  AcceptedPayment current_payment_mode_;
+
+ public:
+  CashMachine();
+  ~CashMachine();
+
+  void choosePaymentMethod();
 };
 
 #endif
