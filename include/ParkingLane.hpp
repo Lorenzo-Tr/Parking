@@ -1,6 +1,8 @@
 #ifndef __PARKING_LANE_H__
 #define __PARKING_LANE_H__
 
+#include <memory>
+
 class ParkingLane;
 
 typedef std::shared_ptr<ParkingLane> ParkingLanePtr;
@@ -24,7 +26,5 @@ class ParkingLane {
   void close();
   void weightVerification(int);
 };
-
-int ParkingLane::current_id;
 
 #endif

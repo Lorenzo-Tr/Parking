@@ -31,6 +31,4 @@ class EnterParking {
   void closeParkingLane();
 };
 
-int EnterParking::current_id;
-
 #endif

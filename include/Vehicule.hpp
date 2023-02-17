@@ -30,6 +30,4 @@ class Vehicule {
   }
 };
 
-int Vehicule::current_id;
-
 #endif

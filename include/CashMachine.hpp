@@ -15,6 +15,4 @@ class CashMachine {
   void choosePaymentMethod();
 };
 
-int CashMachine::current_id;
-
 #endif

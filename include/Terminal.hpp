@@ -18,6 +18,4 @@ class Terminal {
   void printTicket();
 };
 
-int Terminal::current_id;
-
 #endif

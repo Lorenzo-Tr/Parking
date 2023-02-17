@@ -52,6 +52,4 @@ class Parking {
   void saveFilling();
 };
 
-int Parking::current_id; 
-
 #endif

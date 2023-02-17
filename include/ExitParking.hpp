@@ -30,6 +30,4 @@ class ExitParking {
   void closeParkingLane();
 };
 
-int ExitParking::current_id;
-
 #endif

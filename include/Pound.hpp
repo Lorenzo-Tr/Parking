@@ -25,6 +25,4 @@ class Pound {
   }
 };
 
-int Pound::current_id;
-
 #endif

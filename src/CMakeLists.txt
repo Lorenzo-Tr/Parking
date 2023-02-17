@@ -1,9 +1,16 @@
 add_library(
   Parking_lib OBJECT
-  Parking.cpp
-  Visitor.cpp
+  CashMachine.cpp
   Client.cpp
+  EnterParking.cpp
+  ExitParking.cpp
+  Parking.cpp
+  ParkingLane.cpp
+  Pound.cpp
+  Terminal.cpp
   Ticket.cpp
+  Vehicule.cpp
+  Visitor.cpp
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
