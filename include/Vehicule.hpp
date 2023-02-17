@@ -2,12 +2,16 @@
 #ifndef __VEHICULE_H__
 #define __VEHICULE_H__
 
-#include <string>
 #include <memory>
+#include <string>
+
+class Vehicule;
+
+typedef std::shared_ptr<Vehicule> VehiculePtr;
 
 class Vehicule {
-  static int current_id;
   int id_;
+  static int current_id;
   std::string marque_;
   std::string license_plate_;
 
@@ -21,9 +25,11 @@ class Vehicule {
 
   // void SetId(int id) { id_ = id; }
   inline void SetGetMarque(std::string marque) { marque_ = marque; }
-  inline void SetLicense(std::string license_plate) { license_plate_ = license_plate; }
+  inline void SetLicense(std::string license_plate) {
+    license_plate_ = license_plate;
+  }
 };
 
-typedef std::shared_ptr<Vehicule> VehiculePtr;
+int Vehicule::current_id;
 
 #endif

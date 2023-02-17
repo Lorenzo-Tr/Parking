@@ -3,10 +3,11 @@
 
 class Terminal {
   int id_;
+  static int current_id;
 
  public:
-  Terminal();
-  ~Terminal();
+  Terminal() : id_(current_id++) {}
+  ~Terminal() = default;
 
   int GetId() const { return id_; }
 
@@ -16,5 +17,7 @@ class Terminal {
   int readCreaditCard();
   void printTicket();
 };
+
+int Terminal::current_id;
 
 #endif

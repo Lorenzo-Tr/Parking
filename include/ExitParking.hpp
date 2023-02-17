@@ -5,14 +5,18 @@
 #include <list>
 #include <memory>
 
+class ExitParking;
+
+typedef std::shared_ptr<ExitParking> ExitParkingPtr;
+
 class ExitParking {
-  static int current_id;
   int id_;
+  static int current_id;
   std::list<ParkingLanePtr> parking_lane_;
 
  public:
   ExitParking() : id_(current_id++) {}
-  ~ExitParking();
+  ~ExitParking() = default;
 
   int GetId() const { return id_; }
   std::list<ParkingLanePtr> GetParking_lane() const { return parking_lane_; }
@@ -20,12 +24,12 @@ class ExitParking {
   void SetId(int id) { id_ = id; }
 
   inline void addParkingLane(ParkingLane* parking_lane) {
-    parking_lane_.push_back(std::make_shared<ParkingLane>(parking_lane));
+    parking_lane_.push_back(ParkingLanePtr(parking_lane));
   }
   void openParkingLane();
   void closeParkingLane();
 };
 
-typedef std::shared_ptr<ExitParking> ExitParkingPtr;
+int ExitParking::current_id;
 
 #endif

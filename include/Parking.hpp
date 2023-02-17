@@ -7,9 +7,13 @@
 #include <ctime>
 #include <vector>
 
+class Parking;
+
+typedef std::shared_ptr<Parking> ParkingPtr;
+
 class Parking {
-  static int current_id;
   int id_;
+  static int current_id;
   CashMachine cash_machine_;
   int capacity_;
   float price_;
@@ -40,14 +44,14 @@ class Parking {
   inline void SetPrice(float price) { price_ = price; }
 
   inline void addEnterParking(EnterParking* enter_parking) {
-    enter_parking_.push_back(std::make_shared<EnterParking>(enter_parking));
+    enter_parking_.push_back(EnterParkingPtr(enter_parking));
   }
   inline void addExitParking(ExitParking* exit_parking) {
-    exit_parking_.push_back(std::make_shared<ExitParking>(exit_parking));
+    exit_parking_.push_back(ExitParkingPtr(exit_parking));
   }
   void saveFilling();
 };
 
-typedef std::shared_ptr<Parking> ParkingPtr;
+int Parking::current_id; 
 
 #endif

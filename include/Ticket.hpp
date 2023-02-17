@@ -5,6 +5,7 @@
 
 class Ticket {
   int id_;
+  static int current_id;
   std::time_t enterDate_;
   std::time_t limiteDate_;
   float price_;
@@ -12,8 +13,8 @@ class Ticket {
  public:
   Ticket() = default;
   Ticket(std::time_t enter, std::time_t limite)
-      : enterDate_(enter), limiteDate_(limite) {}
-  ~Ticket();
+      : id_(current_id++), enterDate_(enter), limiteDate_(limite) {}
+  ~Ticket() = default;
 
   inline int GetId() const { return id_; }
   inline std::time_t GetEnterDate() const { return enterDate_; }
@@ -30,5 +31,7 @@ class Ticket {
   void calculatePrice();
   void saveDuration();
 };
+
+int Ticket::current_id;
 
 #endif

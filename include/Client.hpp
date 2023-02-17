@@ -3,18 +3,22 @@
 
 #include <memory>
 
+class Client;
+
+typedef std::shared_ptr<Client> ClientPtr;
+
 class Client {
-  static int current_id;
   int id_;
+  static int current_id;
 
  public:
   Client() : id_(current_id++) {}
-  virtual ~Client();
+  virtual ~Client() = default;
   virtual bool pay() = 0;
 
   inline int GetId() const { return id_; }
 };
 
-typedef std::shared_ptr<Client> ClientPtr;
+int Client::current_id;
 
 #endif

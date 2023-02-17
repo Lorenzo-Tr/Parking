@@ -1,15 +1,18 @@
 #ifndef __PARKING_LANE_H__
 #define __PARKING_LANE_H__
 
-class ParkingLane {
-  static int current_id;
-  int id_;
+class ParkingLane;
 
+typedef std::shared_ptr<ParkingLane> ParkingLanePtr;
+
+class ParkingLane {
+  int id_;
+  static int current_id;
   bool status_;
 
  public:
   ParkingLane() : id_(current_id++) {}
-  ~ParkingLane();
+  ~ParkingLane() = default;
 
   inline int GetId() const { return id_; }
   inline bool GetStatus() const { return status_; }
@@ -22,6 +25,6 @@ class ParkingLane {
   void weightVerification(int);
 };
 
-typedef std::shared_ptr<ParkingLane> ParkingLanePtr;
+int ParkingLane::current_id;
 
 #endif

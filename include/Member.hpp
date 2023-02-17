@@ -22,7 +22,7 @@ class Member : public Client {
         last_name_(last_name),
         first_name_(first_name),
         address_(address) {}
-  ~Member();
+  ~Member() = default;
 
   inline int GetCid() const { return cid_; }
   inline int GetBalance() const { return balance_; }

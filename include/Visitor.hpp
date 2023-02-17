@@ -9,7 +9,7 @@ class Visitor : public Client {
 
  public:
   Visitor() : Client(), ticket_() {}
-  ~Visitor();
+  ~Visitor() = default;
 
   inline Ticket GetTicket() const { return ticket_; }
 

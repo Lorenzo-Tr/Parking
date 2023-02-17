@@ -6,9 +6,12 @@
 
 class Pound {
   int id_;
+  static int current_id;
   std::list<VehiculePtr> vehicule_;
 
  public:
+  Pound() : id_(current_id++) {}
+
   inline int GetId() const { return id_; }
   inline std::list<VehiculePtr> Getvehicule() const { return vehicule_; }
 
@@ -21,4 +24,7 @@ class Pound {
     vehicule_.erase(id);
   }
 };
+
+int Pound::current_id;
+
 #endif
