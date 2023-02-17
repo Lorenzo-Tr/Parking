@@ -26,20 +26,39 @@ typedef std::shared_ptr<ParkingEnvironment> ParkingEnvironmentPtr;
 
 class VisitorEnvironment : public ::testing::Environment {
  public:
-  static ClientPtr getClient() {
-    static ClientPtr Client = std::make_shared<Visitor>();
-    return Client;
+  static VisitorPtr getVisitor() {
+    static ClientPtr visitor = std::make_shared<Visitor>();
+    return std::dynamic_pointer_cast<Visitor>(visitor);
+  }
+};
+
+class MemberEnvironment : public ::testing::Environment {
+ public:
+  static MemberPtr getMember() {
+    static ClientPtr member =
+        std::make_shared<Member>(15043, 50, "Doe", "John", "Here at 50 avenue");
+    return std::dynamic_pointer_cast<Member>(member);
   }
 };
 
 class ParkingMainTest : public ::testing::Test {
  protected:
-  virtual void SetUp() { parking_ = ParkingEnvironment::getParking(); }
+  virtual void SetUp() {
+    parking_ = ParkingEnvironment::getParking();
+    visitor_ = VisitorEnvironment::getVisitor();
+    member_ = MemberEnvironment::getMember();
+  }
   ParkingPtr parking_;
+  VisitorPtr visitor_;
+  MemberPtr member_;
 };
 
 ParkingEnvironmentPtr AddGlobalTestEnvironment(ParkingEnvironment* env);
 
 TEST_F(ParkingMainTest, Ticket) {
+  visitor_->getATicket();
+
+  EXPECT_EQ(time(0), visitor_->GetTicket()->GetEnterDate());
+
   EXPECT_EQ(1, 1);
 }

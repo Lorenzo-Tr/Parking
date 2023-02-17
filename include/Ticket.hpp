@@ -2,6 +2,11 @@
 #define __TICKET_H__
 
 #include <ctime>
+#include <memory>
+
+class Ticket;
+
+typedef std::shared_ptr<Ticket> TicketPtr;
 
 class Ticket {
   int id_;
@@ -31,7 +36,5 @@ class Ticket {
   void calculatePrice();
   void saveDuration();
 };
-
-int Ticket::current_id;
 
 #endif

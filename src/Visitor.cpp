@@ -1,6 +1,6 @@
 #include <Visitor.hpp>
 
-void Visitor::GetATicket() {
+void Visitor::getATicket() {
   std::time_t now = time(nullptr);
   std::time_t limite = time(nullptr);
 
@@ -10,5 +10,5 @@ void Visitor::GetATicket() {
   limite = mktime(tm);
 
   Ticket ticket(now, limite);
-  SetTicket(ticket);
+  SetTicket(&ticket);
 }

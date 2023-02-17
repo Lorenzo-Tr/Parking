@@ -4,20 +4,25 @@
 #include <Client.hpp>
 #include <Ticket.hpp>
 
+class Visitor;
+
+typedef std::shared_ptr<Visitor> VisitorPtr;
+
 class Visitor : public Client {
-  Ticket ticket_;
+  TicketPtr ticket_;
 
  public:
-  Visitor() : Client(), ticket_() {}
-  ~Visitor() = default;
+  Visitor() : Client(), ticket_(nullptr) {}
+  ~Visitor() {}
 
-  inline Ticket GetTicket() const { return ticket_; }
+  inline TicketPtr GetTicket() const { return ticket_; }
 
-  inline void SetTicket(Ticket ticket) { ticket_ = ticket; }
+  inline void SetTicket(Ticket* ticket) { ticket_ = TicketPtr(ticket); }
 
   void getATicket();
   bool checkCreditCard();
   bool checkTicketValidity();
-  bool pay();
+  bool pay() { return true; }
 };
+
 #endif

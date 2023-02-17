@@ -13,12 +13,11 @@ class Client {
 
  public:
   Client() : id_(current_id++) {}
-  virtual ~Client() = default;
-  virtual bool pay() = 0;
+  virtual ~Client() {}
 
   inline int GetId() const { return id_; }
-};
 
-int Client::current_id;
+  virtual bool pay() = 0;
+};
 
 #endif

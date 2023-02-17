@@ -1,7 +1,12 @@
 #ifndef __MEMBER_H__
 #define __MEMBER_H__
+
 #include <Client.hpp>
 #include <string>
+
+class Member;
+
+typedef std::shared_ptr<Member> MemberPtr;
 
 class Member : public Client {
   int cid_;
@@ -22,7 +27,7 @@ class Member : public Client {
         last_name_(last_name),
         first_name_(first_name),
         address_(address) {}
-  ~Member() = default;
+  ~Member() {}
 
   inline int GetCid() const { return cid_; }
   inline int GetBalance() const { return balance_; }
@@ -35,6 +40,8 @@ class Member : public Client {
   inline void SetLastname(std::string last_name) { last_name_ = last_name; }
   inline void SetFirsname(std::string first_name) { first_name_ = first_name; }
   inline void SetAddress(std::string address) { address_ = address; }
+
+  bool pay() { return true; }
 };
 
 #endif
