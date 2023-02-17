@@ -19,7 +19,6 @@ FetchContent_MakeAvailable(googletest)
 set(EXE Parking_exe)
 set(SRC ${CMAKE_SOURCE_DIR}/src)
 set(TESTS ${CMAKE_SOURCE_DIR}/tests)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 include_directories(include)
 

@@ -40,4 +40,6 @@ class ParkingMainTest : public ::testing::Test {
 
 ParkingEnvironmentPtr AddGlobalTestEnvironment(ParkingEnvironment* env);
 
-TEST_F(ParkingMainTest, Ticket) {}
+TEST_F(ParkingMainTest, Ticket) {
+  EXPECT_EQ(1, 1);
+}
